@@ -76,3 +76,21 @@ int main()
 
     return 0;
 }
+
+alojamiento::alojamiento(){
+    cout<<"instancias"<<endl;
+}
+
+reservacion::reservacion(){
+    cout<<"instancias"<<endl;
+}
+
+anfitrion::anfitrion(){
+    cout<<"instancias"<<endl;
+}
+
+huesped::huesped(){
+    cout<<"instancias"<<endl;
+}
+
+
