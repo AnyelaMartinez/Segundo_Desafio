@@ -4,6 +4,31 @@
 
 using namespace std;
 
+class fecha {
+private:
+    int dia;
+    int mes;
+    int anio;
+
+public:
+    fecha();
+    fecha(int d, int m, int a);
+    fecha(const fecha& otra);
+    ~fecha();
+
+    bool esMenor(const fecha& otra) const;
+    bool esIgual(const fecha& otra) const;
+    fecha sumarDias(int dias) const;
+    void mostrar() const;
+
+    int getDia() const;
+    int getMes() const;
+    int getAnio() const;
+
+    void leerDesdeCadena(const char* fecha); // yyyy-mm-dd
+    void convertirACadena(char* destino) const; // para guardar en archivo
+};
+
 class alojamiento{
 private:
     string nombre;
@@ -19,6 +44,8 @@ private:
 
 public:
     alojamiento();
+    void cargaUpdateDataAj();
+
     ~alojamiento();
 };
 
@@ -36,6 +63,8 @@ private:
 
 public:
     reservacion();
+    void cargaUpdateDataR();
+
     ~reservacion();
 };
 
@@ -48,11 +77,13 @@ private:
 
 public:
     anfitrion();
-    void cargaUpdateData(const string& nomArchivoE);
-    bool login(const string& username, const string& pass);
+    void cargaUpdateDataA();
+    bool loginA(const string& username, const string& pass);
     void anularReserva();
     void consultarReserva();
     void updateHistorial();
+
+
 
     ~anfitrion();
 };
@@ -66,9 +97,10 @@ private:
 
 public:
     huesped();
-    bool login();
+    bool loginH(const string& username, const string& pass);
     void reservarAlojamiento();
     void anularReserva();
+    void cargaUpdateDataH();
 
     ~huesped();
 };

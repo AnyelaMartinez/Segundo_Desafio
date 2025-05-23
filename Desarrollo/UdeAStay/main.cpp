@@ -5,6 +5,8 @@ using namespace std;
 
 int main()
 {
+    anfitrion obj;
+    huesped hobj;
     int rol;
 
     cout<<endl;
@@ -25,21 +27,17 @@ int main()
         cout<<"Ingrese su clave de anfitrion"<<endl;
         cin>>passA;
 
-        //funcion de login anfitrion
+        if (obj.loginA(userA,passA)){
 
-        /*
-        if (loginA){
         int opc;
-
         cout<<"Usted tiene varias opciones, seleccione el numero de la opción que desea realizar"<<endl;
-        cout<<"1. Cargar o actualizar datos del sistema."<<endl;
-        cout<<"2. Anular una reservacion."<<endl;
-        cout<<"3. Consultar las reservaciones en sus alojamientos."<<endl;
-        cout<<"4. Actualizar historico."<<endl;
+        cout<<"1. Anular una reservacion."<<endl;
+        cout<<"2. Consultar las reservaciones en sus alojamientos."<<endl;
+        cout<<"3. Actualizar historico."<<endl;
         cin>>opc;
 
         if(opc==1){
-            funcion de carga y update
+
         }
         else if (opc==2){
 
@@ -47,17 +45,13 @@ int main()
         else if (opc==3){
 
         }
-        else if (opc==4){
-
-        }
         else {
             cout<<"Opcion invalida"<<endl;
         }
         }
         else{
-        cout << "Credenciales incorrectas<<endl;
+        cout << "Credenciales incorrectas"<<endl;
         }
-         */
     }
     else if (rol==2){
 
@@ -67,10 +61,7 @@ int main()
         cout<<"Ingrese su clave de huesped"<<endl;
         cin>>passU;
 
-        //funcion de login huesped
-
-        /*
-        if (loginH){
+        if (hobj.loginH(userU,passU)){
         int opc;
 
         cout<<"Usted tiene varias opciones, seleccione el numero de la opción que desea realizar"<<endl;
@@ -79,7 +70,7 @@ int main()
         cin>>opc;
 
         if(opc==1){
-            funcion de carga y update
+            //funcion de carga y update
         }
         else if (opc==2){
 
@@ -89,9 +80,8 @@ int main()
         }
         }
         else{
-        cout << "Credenciales incorrectas<<endl;
+        cout << "Credenciales incorrectas"<<endl;
         }
-         */
     }
     else{
         cout<<" Rol invalido"<<endl;

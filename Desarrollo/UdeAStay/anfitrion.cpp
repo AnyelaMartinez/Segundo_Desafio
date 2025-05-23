@@ -21,7 +21,7 @@ void anfitrion::cargaUpdateData(const string& nomArchivoE){
 
 }
 
-bool anfitrion::login(const string& username, const string& pass){
+bool anfitrion::loginA(const string& username, const string& pass){
     string user, passw;
     ifstream fin("sudo.txt");
     if (!fin.is_open()) {
@@ -39,4 +39,8 @@ bool anfitrion::login(const string& username, const string& pass){
 void anfitrion::anularReserva(){}
 void anfitrion::consultarReserva(){}
 void anfitrion::updateHistorial(){}
+
+anfitrion::~anfitrion() {
+    // Destructor vacío (por ahora)
+}
 

@@ -9,6 +9,7 @@ CONFIG += c++17 cmdline
 SOURCES += \
         alojamiento.cpp \
         anfitrion.cpp \
+        fecha.cpp \
         huesped.cpp \
         main.cpp \
         reservacion.cpp
