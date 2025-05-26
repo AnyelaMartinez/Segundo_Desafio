@@ -9,23 +9,30 @@ anfitrion::anfitrion(){
     updateHistorial();
 }
 
-void anfitrion::cargaUpdateData(const string& nomArchivoE){
 
-    ifstream fin(nomArchivoE, ios::out | ios::app);
+void anfitrion::cargaUpdateDataA(){
 
+    string campo;
+    ifstream fin("usuarios.txt", ios::out | ios::app);
     if (!fin.is_open()) {
-        cout << "Falla abriendo archivo." << endl;
+        cout << "Falla abriendo archivo usuarios.txt" << endl;
     }
-
-    //cargando información
+    /*while (getline(fin, campo, '|')) {
+        size_t id_an = campo.find('|');
+        size_t nombre = campo.find('|');
+        size_t antiguedad = campo.find('|');
+        size_t puntos = campo.find('|');
+        size_t id_Aj = campo.find('|');
+    }*/
+    fin.close();
 
 }
 
 bool anfitrion::loginA(const string& username, const string& pass){
     string user, passw;
-    ifstream fin("sudo.txt");
+    ifstream fin("sudoA.txt");
     if (!fin.is_open()) {
-        cout << "Falla abriendo archivo sudo.txt" << endl;
+        cout << "Falla abriendo archivo sudoA.txt" << endl;
         return false;
     }
     getline(fin, user);
@@ -36,6 +43,7 @@ bool anfitrion::loginA(const string& username, const string& pass){
     }
     return true;
 }
+
 void anfitrion::anularReserva(){}
 void anfitrion::consultarReserva(){}
 void anfitrion::updateHistorial(){}

@@ -37,6 +37,9 @@ int main()
         cin>>opc;
 
         if(opc==1){
+            cout<<"Digite el ID de la reserva que desea anular"<<endl;
+            // funcion con anular reserva, parametro id del alojamiento
+            //Primero crear alojamientos
 
         }
         else if (opc==2){
@@ -70,10 +73,78 @@ int main()
         cin>>opc;
 
         if(opc==1){
-            //funcion de carga y update
+            int res = 1;
+            cout<<"Ingrese la fecha de entrada"<<endl;
+            //fecha
+            cout<<"Ingrese el municipio en el que desa la reservacion"<<endl;
+            //municipio
+            cout<<"Cuantas noches necesita para su reservacion"<<endl;
+            //cantidad Noches
+
+            //muestra disponibles
+
+            cout<<"Desea agregar filtros?"<<endl;
+            //respuesta
+
+            if(res == 1){
+                cout<<"Ingrese el codigo del alojamiento que desea"<<endl;
+                //Reservar alojamiento
+
+                //comprobante
+            }
+            else if (res==2){
+                int filtros = 0;
+                cout<<"1. Costo maximo por noche"<<endl;
+                cout<<"2. puntuacion del anfitrion"<<endl;
+                cout<<"3. Ambos"<<endl;
+                cout<<"Cual o cuales filtros desea aplicar?"<<endl;
+                //filtros
+                if(filtros==1){
+                    cout<<"Ingrese el valor maximo que dispone para pagar por noche"<<endl;
+                    //pago maximo
+
+                    //muestra disponibles
+
+                    cout<<"Ingrese el codigo del alojamiento que desea"<<endl;
+                    //Reservar alojamiento
+
+                    //comprobante
+                }
+                else if (filtros==2){
+                    cout<<"Ingrese la puntuacion minima del anfitrion que esta dispuesto a aceptar"<<endl;
+                    //puntos anfitrion
+
+                    //muestra disponibles
+
+                    cout<<"Ingrese el codigo del alojamiento que desea"<<endl;
+                    //Reservar alojamiento
+
+                    //comprobante
+                }
+                else if (filtros ==3){
+                    cout<<"Ingrese el valor maximo que dispone para pagar por noche"<<endl;
+                    //pago maximo
+                    cout<<"Ingrese la puntuacion minima del anfitrion que esta dispuesto a aceptar"<<endl;
+                    //puntos anfitrion
+
+                    //muestra disponibles
+
+                    cout<<"Ingrese el codigo del alojamiento que desea"<<endl;
+                    //Reservar alojamiento
+
+                    //comprobante
+                }
+                else {
+                    cout<<"Opcion invalida"<<endl;
+                }
+            }
+            else {
+                cout<<"Opcion invalida"<<endl;
+            }
         }
         else if (opc==2){
-
+            cout<<"Digite el ID de la reserva que desea anular"<<endl;
+            //anular reserva
         }
         else {
             cout<<"Opcion invalida"<<endl;

@@ -45,7 +45,7 @@ private:
 public:
     alojamiento();
     void cargaUpdateDataAj();
-
+    void aljDisponible();
     ~alojamiento();
 };
 

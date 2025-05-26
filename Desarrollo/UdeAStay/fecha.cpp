@@ -33,7 +33,6 @@ bool fecha::esIgual(const fecha& otra) const {
 }
 
 fecha fecha::sumarDias(int dias) const {
-    // Versión simplificada (no considera años bisiestos ni meses exactos)
     fecha nueva = *this;
     nueva.dia += dias;
 
@@ -60,7 +59,6 @@ int fecha::getMes() const { return mes; }
 int fecha::getAnio() const { return anio; }
 
 void fecha::leerDesdeCadena(const char* fecha) {
-    // formato: yyyy-mm-dd
     sscanf(fecha, "%d-%d-%d", &anio, &mes, &dia);
 }
 

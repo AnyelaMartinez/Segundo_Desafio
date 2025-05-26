@@ -8,9 +8,9 @@ huesped::huesped(){
 
 bool huesped::loginH(const string& username, const string& pass){
     string user, passw;
-    ifstream fin("sudoA.txt");
+    ifstream fin("sudoH.txt");
     if (!fin.is_open()) {
-        cout << "Falla abriendo archivo sudoA.txt" << endl;
+        cout << "Falla abriendo archivo sudoH.txt" << endl;
         return false;
     }
     getline(fin, user);
@@ -20,5 +20,14 @@ bool huesped::loginH(const string& username, const string& pass){
         return false;
     }
     return true;
+}
+
+
+void huesped::reservarAlojamiento(){};
+void huesped::anularReserva(){};
+void huesped::cargaUpdateDataH(){};
+
+huesped::~huesped() {
+    // Destructor
 }
 
