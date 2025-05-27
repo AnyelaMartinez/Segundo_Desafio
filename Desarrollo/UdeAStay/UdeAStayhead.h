@@ -24,9 +24,9 @@ public:
     int getDia() const;
     int getMes() const;
     int getAnio() const;
-
-    void leerDesdeCadena(const char* fecha); // yyyy-mm-dd
-    void convertirACadena(char* destino) const; // para guardar en archivo
+    string formatoBonito() const;
+    void leerDesdeCadena(const char* fecha);
+    void convertirACadena(char* destino) const;
 };
 
 class alojamiento{
@@ -35,7 +35,7 @@ private:
     int idAlojamiento;
     string anfitrion;
     string departamento;
-    string minucipio;
+    string municipio;
     string tipoAlojamiento;
     string direccion;
     long int precioNoche;
@@ -101,7 +101,7 @@ public:
     void reservarAlojamiento();
     void anularReserva();
     void cargaUpdateDataH();
-
+    void generarComprobante(int idReserva, int idAlojamiento, int idHuesped, const fecha& entrada, int noches);
     ~huesped();
 };
 

@@ -65,3 +65,13 @@ void fecha::leerDesdeCadena(const char* fecha) {
 void fecha::convertirACadena(char* destino) const {
     sprintf(destino, "%04d-%02d-%02d", anio, mes, dia);
 }
+
+string fecha::formatoBonito() const {
+    const char* dias[] = {"Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"};
+    const char* meses[] = {"", "enero", "febrero", "marzo", "abril", "mayo", "junio",
+                           "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
+
+    string resultado = string("X") + ", " + to_string(dia) + " de " + meses[mes] + " del " + to_string(anio);
+    return resultado;
+}
+

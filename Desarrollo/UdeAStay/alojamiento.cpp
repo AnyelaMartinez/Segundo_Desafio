@@ -6,28 +6,35 @@ alojamiento::alojamiento(){
     cout<<"instancias"<<endl;
 }
 
-void alojamiento::cargaUpdateDataAj(){
-    string campo;
-    ifstream fin("alojamientos.txt", ios::out | ios::app);
+void alojamiento::cargaUpdateDataAj() {
+    ifstream fin("alojamientos.txt");
     if (!fin.is_open()) {
-        cout << "Falla abriendo archivo alojamientos.txt" << endl;
+        cout << "Error abriendo el archivo alojamientos.txt" << endl;
+        return;
     }
-    while (getline(fin, campo, '|')) {
-        size_t nombre = campo.find('|');
-        size_t idAlojamiento = campo.find('|');
-        size_t anfitrion = campo.find('|');
-        size_t departamento = campo.find('|');
-        size_t minucipio = campo.find('|');
-        size_t tipoAlojamiento = campo.find('|');
-        size_t direccion = campo.find('|');
-        size_t precioNoche = campo.find('|');
-        size_t amenidades = campo.find('|');
-        size_t fechaReserva = campo.find('|');
-    }
+
+    getline(fin, nombre, '|');
+    string id;
+    getline(fin, id, '|');
+    idAlojamiento = stoi(id);
+
+    getline(fin, anfitrion, '|');
+    getline(fin, departamento, '|');
+    getline(fin, municipio, '|');
+    getline(fin, tipoAlojamiento, '|');
+    getline(fin, direccion, '|');
+
+    string precio;
+    getline(fin, precio, '|');
+    precioNoche = stol(precio);
+
+    getline(fin, amenidades, '|');
+    getline(fin, fechaReserva);
+
     fin.close();
-};
+}
+
 
 void alojamiento::aljDisponible(){
-    //Tomar la fecha y comparar en el archivo de alojamientos con el ID si el alojamiento esta disponibles
 
 }
