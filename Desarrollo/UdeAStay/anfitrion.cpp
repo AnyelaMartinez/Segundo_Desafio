@@ -4,50 +4,43 @@
 #include <cstring>
 
 anfitrion::anfitrion(){
-    cout<<"instancias"<<endl;
-    anularReserva();
-    consultarReserva();
-    updateHistorial();
-}
-
-
-void anfitrion::cargaUpdateDataA(){
-
-    string campo;
-    ifstream fin("usuarios.txt", ios::out | ios::app);
-    if (!fin.is_open()) {
-        cout << "Falla abriendo archivo usuarios.txt" << endl;
-    }
-    /*while (getline(fin, campo, '|')) {
-        size_t id_an = campo.find('|');
-        size_t nombre = campo.find('|');
-        size_t antiguedad = campo.find('|');
-        size_t puntos = campo.find('|');
-        size_t id_Aj = campo.find('|');
-    }*/
-    fin.close();
-
+    cout<<"instancias anitrion"<<endl;
 }
 
 bool anfitrion::loginA(const string& username, const string& pass){
-    string user, passw;
-    ifstream fin("sudoA.txt");
+    ifstream fin("usuariosA.txt");
     if (!fin.is_open()) {
-        cout << "Falla abriendo archivo sudoA.txt" << endl;
+        cout << "Error abriendo usuariosA.txt" << endl;
         return false;
     }
-    getline(fin, user);
-    getline(fin, passw);
+
+    string linea;
+    while (getline(fin, linea)) {
+        char buffer[256];
+        strcpy(buffer, linea.c_str());
+
+        char* idStr = strtok(buffer, "|");
+        char* user = strtok(nullptr, "|");
+        char* passw = strtok(nullptr, "|");
+        char* ant = strtok(nullptr, "|");
+        char* punt = strtok(nullptr, "|");
+
+        if (user == username && passw == pass) {
+            idAnfitrion = atoi(idStr);
+            antiguedad = atoi(ant);
+            puntuacion = atof(punt);
+            fin.close();
+            return true;
+        }
+    }
+
     fin.close();
-    if (user != username || passw != pass) {
-        return false;
-    }
-    return true;
+    return false;
 }
 
 void anfitrion::anularReserva() {
     ifstream fin("reservas.txt");
-    ofstream fout("temp.txt");
+    ofstream fout("temp_r.txt");
 
     if (!fin.is_open() || !fout.is_open()) {
         cout << "Error abriendo archivos para anular reserva" << endl;
@@ -72,12 +65,12 @@ void anfitrion::anularReserva() {
     fout.close();
 
     remove("reservas.txt");
-    rename("temp.txt", "reservas.txt");
+    rename("temp_r.txt", "reservas.txt");
 
     if (encontrada)
         cout << "Reserva anulada correctamente." << endl;
     else
-        cout << "No se encontró una reserva con ese ID." << endl;
+        cout << "No se encontro una reserva con ese ID." << endl;
 }
 
 void anfitrion::consultarReserva() {
@@ -87,15 +80,15 @@ void anfitrion::consultarReserva() {
         return;
     }
 
-    string desdeStr, hastaStr;
+    string fechaIni, fechaFin;
     cout << "Ingrese fecha inicial (YYYY-MM-DD): ";
-    cin >> desdeStr;
+    cin >> fechaIni;
     cout << "Ingrese fecha final (YYYY-MM-DD): ";
-    cin >> hastaStr;
+    cin >> fechaFin;
 
     fecha desde, hasta;
-    desde.leerDesdeCadena(desdeStr.c_str());
-    hasta.leerDesdeCadena(hastaStr.c_str());
+    desde.leerDesdeCadena(fechaIni.c_str());
+    hasta.leerDesdeCadena(fechaFin.c_str());
 
     string linea;
     while (getline(fin, linea)) {
@@ -120,19 +113,19 @@ void anfitrion::consultarReserva() {
 }
 
 void anfitrion::updateHistorial() {
-    string hoyStr;
+    string fechaAct;
     cout << "Ingrese la fecha actual (YYYY-MM-DD): ";
-    cin >> hoyStr;
+    cin >> fechaAct;
 
     fecha hoy;
-    hoy.leerDesdeCadena(hoyStr.c_str());
+    hoy.leerDesdeCadena(fechaAct.c_str());
 
     ifstream fin("reservas.txt");
-    ofstream foutAct("temp.txt");
-    ofstream foutHist("reservas_historicas.txt", ios::app);
+    ofstream foutAct("temp_r.txt");
+    ofstream foutHist("Historico.txt", ios::app);
 
     if (!fin.is_open() || !foutAct.is_open() || !foutHist.is_open()) {
-        cout << "Error abriendo archivos para actualizar histórico" << endl;
+        cout << "Error abriendo archivos para actualizar historico" << endl;
         return;
     }
 
@@ -157,11 +150,10 @@ void anfitrion::updateHistorial() {
     foutHist.close();
 
     remove("reservas.txt");
-    rename("temp.txt", "reservas.txt");
+    rename("temp_r.txt", "reservas.txt");
 
-    cout << "Histórico actualizado correctamente." << endl;
+    cout << "Historico actualizado correctamente." << endl;
 }
-
 
 anfitrion::~anfitrion() {
     // Destructor

@@ -74,4 +74,3 @@ string fecha::formatoBonito() const {
     string resultado = string("X") + ", " + to_string(dia) + " de " + meses[mes] + " del " + to_string(anio);
     return resultado;
 }
-

@@ -46,6 +46,8 @@ public:
     alojamiento();
     void cargaUpdateDataAj();
     void aljDisponible();
+    void mostrarAlojamientosDisponibles();
+    void mostrarAlojamientosFiltrados(long int precioMax, double puntuacionMinima);
     ~alojamiento();
 };
 
@@ -83,8 +85,6 @@ public:
     void consultarReserva();
     void updateHistorial();
 
-
-
     ~anfitrion();
 };
 
@@ -101,6 +101,7 @@ public:
     void reservarAlojamiento();
     void anularReserva();
     void cargaUpdateDataH();
+    int getId() const;
     void generarComprobante(int idReserva, int idAlojamiento, int idHuesped, const fecha& entrada, int noches);
     ~huesped();
 };
