@@ -10,6 +10,7 @@ SOURCES += \
         alojamiento.cpp \
         anfitrion.cpp \
         fecha.cpp \
+        globales.cpp \
         huesped.cpp \
         main.cpp \
         reservacion.cpp
@@ -20,4 +21,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    UdeAStayhead.h
+    UdeAStayhead.h \
+    globales.h

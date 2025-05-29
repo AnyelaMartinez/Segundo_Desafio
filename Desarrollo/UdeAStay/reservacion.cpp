@@ -1,22 +1,21 @@
 #include "UdeAStayhead.h"
+#include "globales.h"
 #include <iostream>
 #include <fstream>
 
-reservacion::reservacion(){
-    cout<<"instancias reserva"<<endl;
-}
-
+reservacion::reservacion() {}
 void reservacion::cargaUpdateDataR() {
-    ifstream fin("reservas.txt");
+    std::ifstream fin("reservas.txt");
     if (!fin.is_open()) {
-        cout << "Error al abrir reservas.txt" << endl;
+        std::cout << "Error al abrir reservas.txt\n";
         return;
     }
-
     string linea;
     while (getline(fin, linea)) {
-        cout << "Reserva: " << linea << endl;
+        contador_iteraciones++;
+        std::cout << "Reserva: " << linea << std::endl;
     }
-
     fin.close();
+    std::cout << "Iteraciones: " << contador_iteraciones << "\n";
 }
+reservacion::~reservacion() {}

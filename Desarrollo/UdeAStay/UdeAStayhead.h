@@ -1,15 +1,18 @@
-#include <string>
 #ifndef UDEASTAYHEAD_H
 #define UDEASTAYHEAD_H
 
+#include <string>
+
 using namespace std;
+
+// Contador de iteraciones global
+extern int contador_iteraciones;
 
 class fecha {
 private:
     int dia;
     int mes;
     int anio;
-
 public:
     fecha();
     fecha(int d, int m, int a);
@@ -29,25 +32,28 @@ public:
     void convertirACadena(char* destino) const;
 };
 
-class alojamiento{
+class alojamiento {
 private:
+    static const int MAX_AMENIDADES = 20;
     string nombre;
     int idAlojamiento;
-    string anfitrion;
+    int idAnfitrion;
     string departamento;
     string municipio;
     string tipoAlojamiento;
     string direccion;
     long int precioNoche;
-    string amenidades;
-    string fechaReserva;
+    char amenidades[MAX_AMENIDADES][30];
+    int numAmenidades;
 
 public:
     alojamiento();
     void cargaUpdateDataAj();
-    void aljDisponible();
     void mostrarAlojamientosDisponibles();
     void mostrarAlojamientosFiltrados(long int precioMax, double puntuacionMinima);
+    void mostrarAlojamientoPorCodigo(int codigo);
+    int getIdAlojamiento() const;
+    void setIdAlojamiento(int id);
     ~alojamiento();
 };
 
@@ -66,7 +72,6 @@ private:
 public:
     reservacion();
     void cargaUpdateDataR();
-
     ~reservacion();
 };
 
@@ -75,7 +80,8 @@ private:
     int idAnfitrion;
     int antiguedad;
     double puntuacion;
-    int idAlojamiento;
+    int idsAlojamientos[10]; // máximo 10 alojamientos por anfitrión
+    int numAlojamientos;
 
 public:
     anfitrion();
@@ -84,7 +90,8 @@ public:
     void anularReserva();
     void consultarReserva();
     void updateHistorial();
-
+    int getId() const;
+    void mostrarAlojamientos();
     ~anfitrion();
 };
 
@@ -93,7 +100,6 @@ private:
     int idHuesped;
     int antiguedad;
     double puntuacion;
-    string reservaHuesped;
 
 public:
     huesped();
