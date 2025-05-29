@@ -8,9 +8,9 @@ int main() {
     huesped hobj;
     alojamiento alj;
     int rol;
-    cout << "\n*************************\n";
-    cout << "*    Bienvenido a UdeAStay    *\n";
-    cout << "*************************\n";
+    cout << "\n****************************\n";
+    cout << "*    Bienvenido a UdeAStay *\n";
+    cout << "****************************\n";
     cout << "1. Anfitrion\n";
     cout << "2. Huesped\n";
     cout << "Ingrese el numero de su rol: ";
@@ -65,7 +65,7 @@ int main() {
                     alj.mostrarAlojamientosFiltrados(precioMax, punt);
                 } else cout << "Opcion de filtro invalida.\n";
                 // Buscar por código si desea
-                char s; cout << "¿Buscar por codigo de alojamiento? (s/n): "; cin >> s;
+                char s; cout << "Buscar por codigo de alojamiento? (s/n): "; cin >> s;
                 if (s == 's' || s == 'S') {
                     int codigo; cout << "Ingrese el codigo: "; cin >> codigo;
                     alj.mostrarAlojamientoPorCodigo(codigo);
